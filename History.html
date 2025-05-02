@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Letter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <div id="navbar-container">
+
+  </div> 
+
+
+  
+<!-- =============== Page Content Here =================== -->
+  <section class="Page-content">
+    <div class="text">
+        <h1 class="title-head"> Publication History</h1>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="table-container">
+      <h2>Messages</h2>
+      <table class="classic-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Message</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Hello, world!</td>
+            <td>2025-05-01</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Sample message</td>
+            <td>2025-05-02</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</section>
+    
+</section>
+<!-- ==================== Ends Here =========================== -->
+
+  <script>
+    // Function to load the navbar from an external file
+    function loadNavbar() {
+      fetch('Navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          const body = document.querySelector("body"),
+      sidebar = body.querySelector(".sidebar"),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+
+
+      toggle.addEventListener("click", () =>{
+        sidebar.classList.toggle("close");
+      });
+
+      modeSwitch.addEventListener("click", () =>{
+        body.classList.toggle("dark");
+
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Light Mode"
+        }else{
+            modeText.innerText = "Dark Mode"
+        }
+      });
+        })
+        .catch(error => {
+          console.error('Error loading navbar:', error);
+        });
+    }
+
+    // Call the function when the page loads
+    window.onload = loadNavbar;
+    
+   
+    
+  </script>
+</body>
+</html>
